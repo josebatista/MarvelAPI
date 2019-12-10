@@ -37,6 +37,7 @@ dependencies {
     implementation              dependencies.appCompat
     implementation              dependencies.coreKtx
     implementation              dependencies.constraintLayout
+    implementation              dependencies.recyclerview
 
 
     testImplementation          testDependencies.jUnit
