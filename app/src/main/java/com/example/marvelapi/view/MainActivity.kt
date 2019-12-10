@@ -1,7 +1,8 @@
-package com.example.marvelapi
+package com.example.marvelapi.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.marvelapi.R
 
 class MainActivity : AppCompatActivity() {
 
