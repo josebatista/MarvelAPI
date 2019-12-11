@@ -1,2 +1,2 @@
-include ':app', ':presentation', ':data'
+include ':app', ':presentation', ':data', ':data_api'
 rootProject.name='MarvelAPI'
