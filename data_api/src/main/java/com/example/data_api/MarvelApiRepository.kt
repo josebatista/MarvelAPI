@@ -12,7 +12,9 @@ class MarvelApiRepository : Repository {
         return r.body()
     }
 
-    override fun loadById(id: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun loadById(id: Int): Response? {
+        val r = MarvelApi.getService().loadCharacter(id).execute()
+
+        return r.body()
     }
 }
