@@ -14,8 +14,10 @@ ext {
     kotlin_version              = '1.3.61'
     lifecycle_version           = '2.1.0'
     material_version            = '1.0.0'
+    okhttp_version              = '4.2.1'
     picasso_version             = '2.71828'
     recyclerview_version        = '1.1.0'
+    retrofit_version            = '2.7.0'
 
     //Tests Dependencies
     junit_version               = '4.12'
@@ -28,11 +30,14 @@ ext {
             coreKtx         : "androidx.core:core-ktx:$core_ktx_version",
             coroutine       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version",
             coroutineAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version",
+            gson            : "com.squareup.retrofit2:converter-gson:$retrofit_version",
             kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
             lifecycle       : "androidx.lifecycle:lifecycle-extensions:$lifecycle_version",
+            loginInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttp_version",
             material        : "com.google.android.material:material:$material_version",
             picasso         : "com.squareup.picasso:picasso:$picasso_version",
             recyclerview    : "androidx.recyclerview:recyclerview:$recyclerview_version",
+            retrofit        : "com.squareup.retrofit2:retrofit:$retrofit_version",
             viewmodel       : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
     ]
 
