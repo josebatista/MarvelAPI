@@ -50,11 +50,13 @@ class MainActivity : BaseActivity() {
     }
 
     private fun init() {
-        adapter = CharacterListAdapter {
-            Log.d("TAG", "clicou $it")
-        }
+        adapter = CharacterListAdapter(::onClick)
         rv_characters.adapter = adapter
         rv_characters.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    }
+
+    private fun onClick(id: Int) {
+        Log.d("TAG", "clicou $id")
     }
 }
