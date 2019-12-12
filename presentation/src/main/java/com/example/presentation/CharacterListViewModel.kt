@@ -20,7 +20,11 @@ class CharacterListViewModel : BaseViewModel() {
             if (loading.value == null) {
                 loading.postValue(true)
 
-                repo.loadAll()
+                val r = repo.loadAll()
+                r?.let {
+                    if (it.code == 200)
+                        characterList.postValue(it.data.results)
+                }
 
                 loading.postValue(false)
             }

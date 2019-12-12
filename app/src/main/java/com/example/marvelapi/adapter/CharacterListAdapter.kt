@@ -37,12 +37,13 @@ class CharacterListAdapter(private val onItemClick: (Int) -> Unit) :
         val character = characters[position]
         holder.run {
             characterName?.text = character.name
-            characterImage?.load(character.thumbnail.path)
+            characterImage?.load("${character.thumbnail.path}/portrait_medium.${character.thumbnail.extension}")
         }
     }
 
     fun addCharacters(list: List<Character>) {
         characters.addAll(list)
+        notifyDataSetChanged()
     }
 
     inner class VH(view: View) : RecyclerView.ViewHolder(view) {
