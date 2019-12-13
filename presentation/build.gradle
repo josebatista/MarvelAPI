@@ -1,8 +1,7 @@
-apply plugin: 'com.android.application'
-
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
 
@@ -11,7 +10,6 @@ android {
     compileSdkVersion       globalConfiguration.compile_version
     buildToolsVersion       globalConfiguration.build_tools_version
     defaultConfig {
-        applicationId "com.example.marvelapi"
         minSdkVersion       globalConfiguration.min_sdk_version
         targetSdkVersion    globalConfiguration.target_sdk_version
         versionCode 1
@@ -31,20 +29,17 @@ dependencies {
     def dependencies        = rootProject.ext.dependencies
     def testDependencies    = rootProject.ext.testDependencies
 
-    implementation              project(path: ':presentation')
     implementation              project(path: ':data')
+    implementation              project(path: ':data_api')
 
     implementation              dependencies.kotlin
     implementation              dependencies.appCompat
     implementation              dependencies.coreKtx
     implementation              dependencies.coroutine
     implementation              dependencies.coroutineAndroid
-    implementation              dependencies.constraintLayout
-    implementation              dependencies.material
-    implementation              dependencies.picasso
-    implementation              dependencies.recyclerview
     implementation              dependencies.lifecycle
-
+    implementation              dependencies.retrofit
+    implementation              dependencies.viewmodel
 
     testImplementation          testDependencies.jUnit
     androidTestImplementation   testDependencies.jUnitTestExt

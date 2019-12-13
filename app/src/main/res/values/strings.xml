@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MarvelAPI</string>
+    <string name="character_description">Image of Marvel Character in list</string>
+    <string name="character_description_detail">Image of Marvel Character</string>
+    <string name="name">Name:</string>
+    <string name="name_text">A-Bomb (HAS)</string>
+    <string name="description">Description:</string>
+    <string name="description_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec metus ac mi pharetra interdum vel eget elit. Duis ac rhoncus augue. Fusce vitae sem elit. Phasellus sed mi scelerisque, pretium tellus id, bibendum orci. Fusce semper finibus nibh. Donec est ex, finibus eget leo ut, venenatis consequat est. Curabitur elementum hendrerit odio non finibus. Aenean tincidunt risus non ante maximus, a laoreet purus porttitor. In eu tellus quis nibh congue sodales a at odio. Praesent pharetra orci eget nibh pulvinar, in sagittis ex tincidunt. Mauris blandit, diam vehicula volutpat fermentum, sapien mi rhoncus diam, porttitor cursus ante sapien vel urna. Nulla facilisi. Sed facilisis ipsum quis urna congue, ac ultricies dolor pellentesque.</string>
+    <string name="loading_animation">loading_animation</string>
 </resources>
