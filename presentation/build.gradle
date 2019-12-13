@@ -38,6 +38,7 @@ dependencies {
     implementation              dependencies.coroutine
     implementation              dependencies.coroutineAndroid
     implementation              dependencies.lifecycle
+    implementation              dependencies.retrofit
     implementation              dependencies.viewmodel
 
     testImplementation          testDependencies.jUnit

@@ -2,14 +2,13 @@ package com.example.marvelapi.view
 
 import android.os.Bundle
 import android.os.Parcelable
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marvelapi.R
 import com.example.marvelapi.adapter.CharacterListAdapter
 import com.example.marvelapi.view.base.BaseActivity
-import com.example.presentation.CharacterListViewModel
+import com.example.presentation.viewmodel.CharacterListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -27,6 +26,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         viewmodel.loading.observe(this, loadingStateObserver)
+        viewmodel.toast.observe(this, toastObserver)
         viewmodel.characterList.observe(this, Observer {
             if (recyclerState != null) {
                 rv_characters.layoutManager?.onRestoreInstanceState(recyclerState)
@@ -57,6 +57,6 @@ class MainActivity : BaseActivity() {
     }
 
     private fun onClick(id: Int) {
-        Log.d("TAG", "clicou $id")
+        DetailsActivity.open(this, id)
     }
 }
