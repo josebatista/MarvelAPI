@@ -17,17 +17,15 @@ class CharacterDetailViewModel : BaseViewModel() {
 
     fun loadCharacter(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            if (loading.value == null) {
-                loading.postValue(true)
+            loading.postValue(true)
 
-                val r = repo.loadById(id)
-                if (r.code() == 200)
-                    character.postValue(r.body()?.data?.results?.get(0))
-                else
-                    toast.postValue(r.message())
+            val r = repo.loadById(id)
+            if (r.code() == 200)
+                character.postValue(r.body()?.data?.results?.get(0))
+            else
+                toast.postValue(r.message())
 
-                loading.postValue(false)
-            }
+            loading.postValue(false)
         }
     }
 }
