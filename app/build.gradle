@@ -40,10 +40,13 @@ dependencies {
     implementation              dependencies.coroutine
     implementation              dependencies.coroutineAndroid
     implementation              dependencies.constraintLayout
+    implementation              dependencies.koin
+    implementation              dependencies.koinScope
+    implementation              dependencies.koinViewModel
+    implementation              dependencies.lifecycle
     implementation              dependencies.material
     implementation              dependencies.picasso
     implementation              dependencies.recyclerview
-    implementation              dependencies.lifecycle
 
 
     testImplementation          testDependencies.jUnit

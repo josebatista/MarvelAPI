@@ -5,18 +5,16 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.example.marvelapi.R
 import com.example.marvelapi.extensions.load
 import com.example.marvelapi.view.base.BaseActivity
 import com.example.presentation.viewmodel.CharacterDetailViewModel
 import kotlinx.android.synthetic.main.activity_details.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailsActivity : BaseActivity() {
 
-    private val viewmodel: CharacterDetailViewModel by lazy {
-        ViewModelProviders.of(this).get(CharacterDetailViewModel::class.java)
-    }
+    private val viewmodel: CharacterDetailViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
