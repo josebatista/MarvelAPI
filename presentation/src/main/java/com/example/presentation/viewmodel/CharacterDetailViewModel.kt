@@ -4,14 +4,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.data.Repository
 import com.example.data.model.Character
-import com.example.data_api.MarvelApiRepository
 import com.example.presentation.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CharacterDetailViewModel : BaseViewModel() {
-
-    private val repo: Repository = MarvelApiRepository()
+class CharacterDetailViewModel(
+    private val repo: Repository
+) : BaseViewModel() {
 
     val character: MutableLiveData<Character> = MutableLiveData()
 

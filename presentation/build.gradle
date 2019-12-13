@@ -37,6 +37,9 @@ dependencies {
     implementation              dependencies.coreKtx
     implementation              dependencies.coroutine
     implementation              dependencies.coroutineAndroid
+    implementation              dependencies.koin
+    implementation              dependencies.koinScope
+    implementation              dependencies.koinViewModel
     implementation              dependencies.lifecycle
     implementation              dependencies.retrofit
     implementation              dependencies.viewmodel
