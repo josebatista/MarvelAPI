@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapi.R
@@ -12,12 +11,11 @@ import com.example.marvelapi.adapter.CharacterListAdapter
 import com.example.marvelapi.view.base.BaseActivity
 import com.example.presentation.viewmodel.CharacterListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity() {
 
-    private val viewmodel: CharacterListViewModel by lazy {
-        ViewModelProviders.of(this).get(CharacterListViewModel::class.java)
-    }
+    private val viewmodel: CharacterListViewModel by viewModel()
 
     private lateinit var adapter: CharacterListAdapter
 
