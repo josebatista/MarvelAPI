@@ -1,4 +1,4 @@
-package com.example.presentation
+package com.example.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -21,10 +21,10 @@ class CharacterListViewModel : BaseViewModel() {
                 loading.postValue(true)
 
                 val r = repo.loadAll()
-                r?.let {
-                    if (it.code == 200)
-                        characterList.postValue(it.data.results)
-                }
+                if (r.code() == 200)
+                    characterList.postValue(r.body()?.data?.results)
+                else
+                    toast.postValue(r.message())
 
                 loading.postValue(false)
             }
