@@ -15,19 +15,23 @@ class CharacterListViewModel : BaseViewModel() {
 
     val characterList: MutableLiveData<List<Character>> = MutableLiveData()
 
-    fun loadCharacters() {
-        viewModelScope.launch(Dispatchers.IO) {
-            if (loading.value == null) {
-                loading.postValue(true)
+    var actualPage = -1
+        private set
 
-                val r = repo.loadAll()
+    fun loadCharacters(page: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            loading.postValue(true)
+
+            if (page > actualPage) {
+                actualPage = page
+                val r = repo.loadAll(page)
                 if (r.code() == 200)
                     characterList.postValue(r.body()?.data?.results)
                 else
                     toast.postValue(r.message())
-
-                loading.postValue(false)
             }
+
+            loading.postValue(false)
         }
     }
 }

@@ -2,9 +2,11 @@ package com.example.marvelapi.view
 
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapi.R
 import com.example.marvelapi.adapter.CharacterListAdapter
 import com.example.marvelapi.view.base.BaseActivity
@@ -36,7 +38,7 @@ class MainActivity : BaseActivity() {
 
         init()
 
-        viewmodel.loadCharacters()
+        viewmodel.loadCharacters(0)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -52,11 +54,21 @@ class MainActivity : BaseActivity() {
     private fun init() {
         adapter = CharacterListAdapter(::onClick)
         rv_characters.adapter = adapter
-        rv_characters.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val llm = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_characters.layoutManager = llm
+        rv_characters.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                val lastVisibleItemPosition = llm.findLastVisibleItemPosition()
+                if (lastVisibleItemPosition == adapter.itemCount - 1 && !viewmodel.loading.value!!) {
+                    viewmodel.loadCharacters(viewmodel.actualPage + 1)
+                }
+            }
+        })
     }
 
     private fun onClick(id: Int) {
+        Log.d("TAG", "clicouuuuuuu $id")
         DetailsActivity.open(this, id)
     }
 }
