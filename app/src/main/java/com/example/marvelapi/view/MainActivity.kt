@@ -2,7 +2,6 @@ package com.example.marvelapi.view
 
 import android.os.Bundle
 import android.os.Parcelable
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,12 +40,15 @@ class MainActivity : BaseActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelable("asd", rv_characters.layoutManager?.onSaveInstanceState())
+        outState.putParcelable(
+            STATE_OF_RECYCLER_VIEW,
+            rv_characters.layoutManager?.onSaveInstanceState()
+        )
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        recyclerState = savedInstanceState.getParcelable("asd")
+        recyclerState = savedInstanceState.getParcelable(STATE_OF_RECYCLER_VIEW)
     }
 
     private fun init() {
@@ -66,7 +68,10 @@ class MainActivity : BaseActivity() {
     }
 
     private fun onClick(id: Int) {
-        Log.d("TAG", "clicouuuuuuu $id")
         DetailsActivity.open(this, id)
+    }
+
+    companion object {
+        private const val STATE_OF_RECYCLER_VIEW = "state_of_recycler_view"
     }
 }
