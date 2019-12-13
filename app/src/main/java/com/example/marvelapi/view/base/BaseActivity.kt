@@ -2,6 +2,7 @@ package com.example.marvelapi.view.base
 
 import android.app.Dialog
 import android.view.Window
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.marvelapi.R
@@ -37,6 +38,10 @@ abstract class BaseActivity : AppCompatActivity() {
         } else {
             hideLoading()
         }
+    }
+
+    protected var toastObserver = Observer<String> { message ->
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
 }
